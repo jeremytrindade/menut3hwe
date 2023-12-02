@@ -1,0 +1,79 @@
+/* Navbar.css */
+
+/* Reset de margens e padding para toda a aplicação */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para o cabeçalho (header) */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  /* Estilo para o logo dentro do cabeçalho */
+  .logo {
+    height: 55px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  /* Estilo para o texto do cabeçalho */
+  .header-text {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  /* Estilos para os links do navbar */
+  .navbar .navbar-links-container a,
+  .navbar .navbar-menu-container a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: 3rem;
+  }
+  
+  /* Estilo para o ícone do menu (hamburger) */
+  .navbar-menu-container svg {
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Estilo para o drawer do Material-UI */
+  .MuiDrawer-paper {
+    width: 250px;
+    background-color: #333;
+    color: white;
+  }
+  
+  /* Estilo para os itens da lista dentro do drawer */
+  .MuiListItemButton-root {
+    color: white;
+  }
+  
+  /* Estilos de media query para ajustar a visibilidade dos links dependendo da largura da tela */
+  @media (max-width: 1680px) {
+    .navbar-links-container {
+      display: none;
+    }
+    .navbar-menu-container {
+      display: flex;
+    }
+  }
+  
+  /* Outros estilos relacionados ao navbar podem ser adicionados aqui conforme necessário */
+  

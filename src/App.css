@@ -1,0 +1,212 @@
+/* Reset de margens e padding para toda a aplicação */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Isso garante que o padding não afete a largura total */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+.header, .image-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Content-box doesn't include padding & border in width */
+}
+
+/* Estilo para o título */
+.title {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 24px;
+  font-weight: bold; /* Para tornar o texto em negrito */
+  color: #333; /* Cor do texto desejada */
+}
+
+/* CSS for the header */
+.header {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Centraliza os itens verticalmente */
+  justify-content: start; /* Alinha os itens ao início do container */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px; /* Ajuste o padding conforme necessário */
+  z-index: 1000; /* Certifique-se de que está acima de outros conteúdos */
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 55px; /* Altura do logo */
+  margin-right: 10px; /* Espaçamento entre o logo e o texto */
+  margin-left: 10px; /* Espaçamento entre o logo e o texto */
+}
+
+.header-text {
+  font-size: 18px;
+  font-weight: bold;
+  /* Se você quiser que o texto ocupe todo o espaço à direita do logo: */
+  flex-grow: 1;
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Estilo para o texto de sobreposição */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold; /* Negrito */
+  text-align: center;
+  width: 100%;
+  transition: font-size 0.3s ease-in-out; /* Transição suave de tamanho de fonte */
+}
+
+/* Estilo para a camada escura de sobreposição */
+.overlay-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Camada preta com 30% de opacidade */
+  opacity: 0; /* Inicialmente, a camada é transparente */
+}
+
+/* Estilo para a imagem quando o mouse passa por cima */
+.image-box .overlay-layer {
+  opacity: 10; /* Torna a camada escura visível quando o mouse passa por cima */
+}
+
+/* Estilo para a camada escura quando o mouse passa por cima */
+.image-box .overlay-text {
+  background-color: transparent; /* Remove o fundo da camada escura quando o mouse passa por cima */
+}
+
+/* Estilo para a imagem quando o mouse passa por cima */
+.image-box:hover .overlay-text {
+  font-size: 34px; /* Tamanho do texto aumentado ao passar o mouse por cima */
+}
+
+/* Estilo para o contêiner das imagens */
+.image-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 0 auto;
+}
+
+/* Estilo para cada caixa de imagem */
+.image-box {
+  position: relative;
+  width: 100%; /* Imagens ocupam toda a largura por padrão */
+  height: 100vh; /* Altura da imagem ajustada para ocupar toda a altura da tela */
+}
+
+/* Estilo para as imagens */
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha a área sem perder a proporção */
+  display: block;
+}
+
+/* Estilo para a imagem quando o mouse passa por cima */
+.image-box:hover .overlay-layer {
+  opacity: 1; /* Torna a camada preta visível quando o mouse passa por cima */
+}
+
+/* Estilo para a camada preta quando o mouse passa por cima */
+.image-box:hover .overlay-text {
+  background-color: transparent; /* Remove o fundo quando o mouse passa por cima */
+}
+
+/* Estilo para telas maiores que 1020px */
+@media (min-width: 1021px) {
+  .image-box {
+      width: calc(100% / 5); /* 5 imagens por linha em telas maiores */
+  }
+}
+
+/* Estilo para telas menores que 1020px */
+@media (max-width: 1020px) {
+  .image-box {
+      width: 50%; /* 2 imagens por linha em telas pequenas */
+  }
+}
+
+/* Estilo para telas muito pequenas */
+@media (max-width: 600px) {
+  .image-box {
+      width: 100%; /* 1 imagem por linha em telas muito pequenas */
+  }
+}
+
+.footer {
+  background-color: #333; /* Cor de fundo semelhante ao cabeçalho */
+  color: white; /* Cor do texto */
+  padding: 10px 0 25px 0; /* Espaçamento interno */
+  text-align: center; /* Centralização do texto */
+  font-size: 14px; /* Tamanho da fonte */
+  bottom: 0; /* Posicionamento no fundo da página */
+  width: 100%; /* Largura total */
+}
+
+.footer-links a {
+  color: white; /* Cor dos links */
+  text-decoration: none; /* Sem sublinhado */
+  margin: 0 5px; /* Margem entre os links */
+}
+
+.footer-links a:hover {
+  text-decoration: underline; /* Sublinhado ao passar o mouse */
+}
+.scrolling-message-container {
+  width: 100%;
+  overflow: hidden; /* Esconder o conteúdo que excede o limite */
+  white-space: nowrap; /* Evitar quebra de linha */
+}
+
+.scrolling-message {
+  display: inline-block;
+  padding-left: 100%; /* Espaçamento inicial */
+  animation: scroll-left 20s linear infinite; /* Animação personalizada */
+}
+
+.scrolling-message-container {
+  position: fixed; /* Fixar a mensagem na página */
+  bottom: 0; /* Posicioná-la na parte inferior da página */
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #333; /* Definir uma cor de fundo, se necessário */
+  color: white; /* Cor do texto */
+  z-index: 1000; /* Garantir que fique acima dos outros elementos da página */
+}
+
+.scrolling-message {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 30s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

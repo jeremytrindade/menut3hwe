@@ -1,0 +1,35 @@
+/* Estilo para a camada preta de sobreposição */
+.overlay-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Camada preta com 30% de opacidade */
+  opacity: 0; /* Inicialmente, a camada é transparente */
+  transition: opacity 0.3s; /* Transição suave de opacidade */
+}
+
+/* Estilo para o texto no centro da imagem */
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 20px;
+  font-weight: bold; /* Negrito */
+  text-align: center;
+  width: 100%;
+  z-index: 1; /* Coloca o texto acima da camada preta */
+}
+
+/* Estilo para a imagem quando o mouse passa por cima */
+.image-box:hover .overlay-layer {
+  opacity: 1; /* Torna a camada preta visível quando o mouse passa por cima */
+}
+
+/* Estilo para a camada preta quando o mouse passa por cima */
+.image-box:hover .overlay-text {
+  background-color: transparent; /* Remove o fundo quando o mouse passa por cima */
+}
